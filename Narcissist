@@ -1,0 +1,37 @@
+#my submission 
+def narcissistic?(value)
+  # Code me to return true or false
+  raised_to_the_power = value.to_s.length
+  digits_given = value.to_s.chars.map(&:to_i)
+  total = 0
+  
+  digits_given.each do |n| 
+    total += n ** raised_to_the_power
+  end
+  
+  total == value
+end
+
+
+
+
+#other peoples submissions
+
+def narcissistic?( value )
+  value == value.to_s.chars.map { |x| x.to_i**value.to_s.size }.reduce(:+)
+  
+  ###value == value.to_s.chars.map { |x| x.to_i ** value.to_s.length }.reduce(:+)###
+end
+
+
+
+def narcissistic?(n)
+  n == n.digits.sum { |d| d**n.digits.size }
+end
+
+
+
+def narcissistic?( i )
+  length = i.to_s.size
+  i.to_s.chars.map{ |e| e.to_i**length }.inject(:+) == i
+end
